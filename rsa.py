@@ -20,7 +20,14 @@ def generate(keysize):
     d = pow(e, -1, phi)
     return ((e, n), (d, n))
     
-# def encrypt(pub, message):
+def encrypt(pub, message):
+    e, n = pub
+    encrypted = []
+    for char in message:
+        m = ord(char)
+        c = pow(m, e, n)
+        encrypted.append(c)
+    return encrypted
     
 # def decrypt(priv, encrypted):
 
