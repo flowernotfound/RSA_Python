@@ -18,5 +18,10 @@ def main():
     
     decrypted = decrypt(priv, encrypted)
     
+    print(pub + "\n" + priv)
+    print(message)
+    print(encrypted)
+    print(decrypted)
+    
 if __name__ == "__main__":
     main()
