@@ -1,9 +1,10 @@
 import random
+from math import gcd
 from sympy import isprime
 
 def large_prime(keysize):
     while True:
-        num = random.randbits(keysize)
+        num = random.getrandbits(keysize)
         if isprime(num):
             return num
         
@@ -17,6 +18,7 @@ def generate(keysize):
     while gcd(e, phi) != 1:
         e = random.randrange(2, phi)
     d = pow(e, -1, phi)
+    return ((e, n), (d, n))
     
 # def encrypt(pub, message):
     
@@ -31,7 +33,8 @@ def main():
     
     # decrypted = decrypt(priv, encrypted)
     
-    print(pub + "\n" + priv)
+    print(pub)
+    print(priv)
     # print(message)
     # print(encrypted)
     # print(decrypted)
