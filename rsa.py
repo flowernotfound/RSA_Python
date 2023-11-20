@@ -28,19 +28,26 @@ def encrypt(pub, message):
         encrypted.append(c)
     return encrypted
     
-# def decrypt(priv, encrypted):
+def decrypt(priv, encrypted):
+    d, n = priv
+    decrypted = ""
+    for num in encrypted:
+        m = pow(num, d, n)
+        char = chr(m)
+        decrypted += char
+    return decrypted
 
 def main():
     keysize = 1024
     pub, priv = generate(keysize)
     message = "sample"
     encrypted = encrypt(pub, message)
-    # decrypted = decrypt(priv, encrypted)
+    decrypted = decrypt(priv, encrypted)
     print(pub)
     print(priv)
     print(message)
     print(encrypted)
-    # print(decrypted)
+    print(decrypted)
     
 if __name__ == "__main__":
     main()
