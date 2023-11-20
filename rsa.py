@@ -13,7 +13,6 @@ def generate(keysize):
     q = large_prime(keysize)
     n = p * q
     phi = (p - 1) * (q - 1)
-    
     e = random.randrange(2, phi)
     while gcd(e, phi) != 1:
         e = random.randrange(2, phi)
@@ -34,16 +33,13 @@ def encrypt(pub, message):
 def main():
     keysize = 1024
     pub, priv = generate(keysize)
-    
-    # message = "sample"
-    # encrypted = encrypt(pub, message)
-    
+    message = "sample"
+    encrypted = encrypt(pub, message)
     # decrypted = decrypt(priv, encrypted)
-    
     print(pub)
     print(priv)
-    # print(message)
-    # print(encrypted)
+    print(message)
+    print(encrypted)
     # print(decrypted)
     
 if __name__ == "__main__":
